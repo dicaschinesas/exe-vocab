@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercícios de Vocabulário HSK 1 - Completar frases</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eeebdd;
+      margin: 20px;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question p {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .options {
+      margin-left: 20px;
+    }
+    .options label {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .options label:hover {
+      background-color: #e0e0e0;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 20px auto;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+    }
+    .progress-bar {
+      width: 100%;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .progress {
+      height: 10px;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    .try-again {
+      background-color: #f44336;
+      display: none;
+    }
+    .try-again:hover {
+      background-color: #d32f2f;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+    .celebration {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .celebration img {
+      width: 150px;
+      height: auto;
+    }
+    .vocab-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .vocab-list span {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    .vocab-list span.used {
+      color: lightgray;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1><p>Exercícios de Vocabulário HSK1:<span style="color: #ff0000;"> Completar frases 1</span></p></h1>
+  <div class="quiz-container">
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+    <p><strong>Instruções:</strong> Preencha os espaços em branco nas frases abaixo utilizando as palavras da lista fornecida. Ao seleccionar uma palavra, ela passará a cinzento para indicar que já foi utilizada.</p>
+
+    <!-- Lista de Vocabulário -->
+    <div class="vocab-list" id="vocab-list">
+      <span onclick="selectWord(this)">怎么</span>
+      <span onclick="selectWord(this)">我们</span>
+      <span onclick="selectWord(this)">不</span>
+      <span onclick="selectWord(this)">吗</span>
+      <span onclick="selectWord(this)">这儿</span>
+      <span onclick="selectWord(this)">北京</span>
+      <span onclick="selectWord(this)">今天</span>
+      <span onclick="selectWord(this)">太</span>
+      <span onclick="selectWord(this)">现在</span>
+      <span onclick="selectWord(this)">医生</span>
+      <span onclick="selectWord(this)">打电话</span>
+      <span onclick="selectWord(this)">多少</span>
+      <span onclick="selectWord(this)">回</span>
+      <span onclick="selectWord(this)">好</span>
+      <span onclick="selectWord(this)">八</span>
+      <span onclick="selectWord(this)">什么</span>
+      <span onclick="selectWord(this)">谢谢</span>
+      <span onclick="selectWord(this)">说话</span>
+      <span onclick="selectWord(this)">学校</span>
+      <span onclick="selectWord(this)">本</span>
+ 
+
+    
+    </div>
+
+    <!-- Frases com Espaços para Preencher -->
+    <div class="question">
+      <p>1. ____是学生。</p>
+      <input type="text" id="q1" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>2. 我们在____吃饭。</p>
+      <input type="text" id="q2" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>3. 你叫____名字？</p>
+      <input type="text" id="q3" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>4. 这个汉字____写？</p>
+      <input type="text" id="q4" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>5. 你家有____人？</p>
+      <input type="text" id="q5" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>6. 今天是____月____号。</p>
+      <input type="text" id="q6" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>7. 我买了一____汉语书。</p>
+      <input type="text" id="q7" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>8. 这个苹果____大了！</p>
+      <input type="text" id="q8" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>9. 我____喜欢喝咖啡。</p>
+      <input type="text" id="q9" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>10. 你会说汉语____？</p>
+      <input type="text" id="q10" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>11. 他在____学习汉语。</p>
+      <input type="text" id="q11" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>12. 我想去____。</p>
+      <input type="text" id="q12" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>13. ____是星期五。</p>
+      <input type="text" id="q13" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>14. ____是八点。</p>
+      <input type="text" id="q14" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>15. ____在医院工作。</p>
+      <input type="text" id="q15" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>16. 我给妈妈____。</p>
+      <input type="text" id="q16" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>17. 我晚上____家。</p>
+      <input type="text" id="q17" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>18. 请不要____。</p>
+      <input type="text" id="q18" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>19. 你今天____吗？</p>
+      <input type="text" id="q19" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <div class="question">
+      <p>20. ____老师！</p>
+      <input type="text" id="q20" oninput="fillGap(this)" placeholder="Digite a palavra aqui...">
+    </div>
+
+    <button onclick="checkAnswers()">Enviar Respostas</button>
+    <button class="try-again" onclick="resetQuiz()">Tentar Novamente</button>
+
+    <div class="result" id="result"></div>
+    <div class="celebration" id="celebration">
+      <img src="https://media.giphy.com/media/3o7abAHdYvZdBNnGZq/giphy.gif" alt="Celebration GIF">
+      <p>Parabéns! Acertou todas as respostas! 🎉</p>
+    </div>
+  </div>
+
+  <script>
+    const answers = {
+      q1: "我们",
+      q2: "这儿",
+      q3: "什么",
+      q4: "怎么",
+      q5: "多少人",
+      q6: "八",
+      q7: "本",
+      q8: "太",
+      q9: "不",
+      q10: "吗",
+      q11: "学校",
+      q12: "北京",
+      q13: "今天",
+      q14: "现在",
+      q15: "医生",
+      q16: "打电话",
+      q17: "回",
+      q18: "说话",
+      q19: "好",
+      q20: "谢谢"
+    };
+
+    function selectWord(wordElement) {
+      if (!wordElement.classList.contains("used")) {
+        const selectedWord = wordElement.innerText;
+        const inputFields = document.querySelectorAll("input[type='text']");
+        for (let input of inputFields) {
+          if (input.value === "") {
+            input.value = selectedWord;
+            wordElement.classList.add("used");
+            break;
+          }
+        }
+      }
+    }
+
+    function fillGap(inputField) {
+      const selectedWord = inputField.value;
+      const wordElements = document.querySelectorAll(".vocab-list span");
+      for (let wordElement of wordElements) {
+        if (wordElement.innerText === selectedWord) {
+          wordElement.classList.add("used");
+          break;
+        }
+      }
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      const resultDiv = document.getElementById("result");
+      const progressBar = document.getElementById("progress");
+      const celebrationDiv = document.getElementById("celebration");
+
+      for (let i = 1; i <= 20; i++) {
+        const answer = document.getElementById(`q${i}`).value.trim();
+        if (answer === answers[`q${i}`]) {
+          score++;
+          document.getElementById(`q${i}`).classList.add("correct");
+        } else {
+          document.getElementById(`q${i}`).classList.add("incorrect");
+        }
+      }
+
+      const progressPercentage = (score / 20) * 100;
+      progressBar.style.width = `${progressPercentage}%`;
+
+      resultDiv.innerHTML = `Acertou ${score} de 20!`;
+      document.querySelector(".try-again").style.display = "block";
+
+      if (score === 20) {
+        celebrationDiv.style.display = "block";
+      } else {
+        celebrationDiv.style.display = "none";
+      }
+    }
+
+    function resetQuiz() {
+      const inputFields = document.querySelectorAll("input[type='text']");
+      inputFields.forEach(input => {
+        input.value = "";
+        input.classList.remove("correct", "incorrect");
+      });
+
+      const wordElements = document.querySelectorAll(".vocab-list span");
+      wordElements.forEach(word => word.classList.remove("used"));
+
+      document.getElementById("progress").style.width = "0%";
+      document.getElementById("result").innerHTML = "";
+      document.querySelector(".try-again").style.display = "none";
+      document.getElementById("celebration").style.display = "none";
+    }
+  </script>
+
+  <p> </p>
+  <p style="text-align: center;"><span style="font-size: 18pt; color: #ff0000;"><strong><a style="color: #ff0000;" href="https://dicaschinesas.github.io/exercicios/HSK1%20-%20Preenchimento%20de%20Espaços%20-%20respostas.html">RESPOSTAS</a></strong></span></p>
+
+  <p></p>
+  <figure class="wp-block-image aligncenter size-large is-resized" style="text-align: center;"><img alt="" class="wp-image-1907" src="https://pensamentonomada.wordpress.com/wp-content/uploads/2025/02/dicas-chinesas-copy.png?w=383" style="width: 149px; height: auto;" /></figure>
+  <p style="text-align: center;"><strong><a href="https://dicaschinesas.blogs.sapo.pt/">dicaschinesas.blogs.sapo.pt</a></strong></p><p></p>
+  <p></p>
+</body>
+</html>
