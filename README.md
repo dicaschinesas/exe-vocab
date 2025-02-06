@@ -2,4 +2,12 @@
 <p> </p>
 <h1 class="col-auto characters" style="text-align: left;"><span style="background-color: #ff99cc;"> HSK <span style="color: #ff0000;"><span style="color: #ffffff;">1</span> </span></span><span style="font-size: 14pt;"> </span></h1>
 <p> </p>
+
+ <a href="HSK4 - 09.html">GRAMÁTICA 09</a>
+ (<a href="HSK4 - 09 - respostas.html">Respostas</a>)
+ 
 <h1 class="col-auto characters" style="text-align: left;"><span style="background-color: #33cccc;"> HSK <span style="color: #ffffff;">2</span><span style="color: #ff0000;"> </span></span></h1>
+
+
+ <a href="HSK4 - 09.html">GRAMÁTICA 09</a>
+ (<a href="HSK4 - 09 - respostas.html">Respostas</a>)
