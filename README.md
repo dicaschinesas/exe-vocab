@@ -41,5 +41,3 @@ Completar frases
 <h1 class="col-auto characters" style="text-align: left;"><span style="background-color: #33cccc;"> HSK <span style="color: #ffffff;">2</span><span style="color: #ff0000;"> </span></span></h1>
 
 
- <a href="HSK4 - 09.html">GRAMÁTICA 09</a>
- (<a href="HSK4 - 09 - respostas.html">Respostas</a>)
